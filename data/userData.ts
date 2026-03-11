@@ -1,0 +1,61 @@
+import { UserAccount } from "@/types/user";
+
+export const mockUserAccounts: UserAccount[] = [
+  {
+    id: "user-sarah",
+    name: "Sarah Johnson",
+    email: "sarah.j@techflow.io",
+    role: "Freelancer",
+    verificationStatus: "Verified",
+    totalVolume: 42850,
+    trustScore: 98,
+    avatarInitials: "SJ",
+    avatarBg: "#e0e7ff",
+  },
+  {
+    id: "user-marcus",
+    name: "Marcus Chen",
+    email: "m.chen@venturelabs.com",
+    role: "Client",
+    verificationStatus: "Pending",
+    totalVolume: 12400,
+    trustScore: 72,
+    avatarInitials: "MC",
+    avatarBg: "#1e293b",
+  },
+  {
+    id: "user-david",
+    name: "David Miller",
+    email: "david.miller@concurr.admin",
+    role: "Admin",
+    verificationStatus: "Verified",
+    totalVolume: null,
+    trustScore: 100,
+    avatarInitials: "DM",
+    avatarBg: "#334155",
+  },
+  {
+    id: "user-elena",
+    name: "Elena Rodriguez",
+    email: "elena.rod@globalpay.com",
+    role: "Freelancer",
+    verificationStatus: "Unverified",
+    totalVolume: 0,
+    trustScore: 45,
+    avatarInitials: "ER",
+    avatarBg: "#b45309",
+  },
+];
+
+export const userStats = {
+  totalUsers: 12482,
+  totalUsersChange: "+12%",
+  totalUsersPositive: true,
+  verifiedUsers: 11105,
+  verifiedUsersChange: "+8%",
+  verifiedUsersPositive: true,
+  activeDisputeParticipants: 42,
+  disputeParticipantsChange: "-3%",
+  disputeParticipantsPositive: false,
+  totalCount: 12482,
+};
