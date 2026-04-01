@@ -13,16 +13,24 @@ import {
 } from "lucide-react";
 
 const mainNav = [
-  { label: "Overview", href: "/overview", icon: LayoutDashboard },
-  { label: "Escrow Accounts", href: "/escrow-accounts", icon: ShieldCheck },
-  { label: "Disputes", href: "/disputes", icon: Siren },
-  { label: "User Accounts", href: "/user-accounts", icon: Users },
-  { label: "Financial Reports", href: "/financial-reports", icon: BarChart3 },
-  { label: "Messages", href: "/messages", icon: MessageSquare },
+  { label: "Overview", href: "/admin/overview", icon: LayoutDashboard },
+  {
+    label: "Escrow Accounts",
+    href: "/admin/escrow-accounts",
+    icon: ShieldCheck,
+  },
+  { label: "Disputes", href: "/admin/disputes", icon: Siren },
+  { label: "User Accounts", href: "/admin/user-accounts", icon: Users },
+  {
+    label: "Financial Reports",
+    href: "/admin/financial-reports",
+    icon: BarChart3,
+  },
+  { label: "Messages", href: "/admin/messages", icon: MessageSquare },
 ];
 
 const systemNav = [
-  { label: "System Config", href: "/system-config", icon: Settings },
+  { label: "System Config", href: "/admin/system-config", icon: Settings },
 ];
 
 export default function Sidebar() {
