@@ -2,20 +2,28 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { ShieldCheck, Plus } from "lucide-react";
 import { clearSessionCookies, getSessionFromCookie } from "@/lib/auth";
 
 const navLinks = [
-  { label: "Dashboard",    href: "/client/dashboard"    },
-  { label: "Projects",     href: "/client/projects"     },
+  { label: "Dashboard", href: "/client/dashboard" },
+  { label: "Projects", href: "/client/projects" },
   { label: "Transactions", href: "/client/transactions" },
-  { label: "Wallets",      href: "/client/wallets"      },
+  { label: "Wallets", href: "/client/wallets" },
 ];
 
 export default function ClientTopNav() {
   const pathname = usePathname();
-  const router   = useRouter();
-  const session  = getSessionFromCookie();
+  const router = useRouter();
+  const [initials, setInitials] = useState("??");
+
+  useEffect(() => {
+    const session = getSessionFromCookie();
+    if (session?.avatarInitials) {
+      setInitials(session.avatarInitials);
+    }
+  }, []);
 
   function handleLogout() {
     clearSessionCookies();
@@ -31,7 +39,9 @@ export default function ClientTopNav() {
           <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center">
             <ShieldCheck size={16} strokeWidth={2} className="text-white" />
           </div>
-          <span className="font-bold text-[16px] text-white tracking-tight">Escrow</span>
+          <span className="font-bold text-[16px] text-white tracking-tight">
+            Escrow
+          </span>
         </Link>
 
         {/* Nav links */}
@@ -74,9 +84,7 @@ export default function ClientTopNav() {
           title="Sign out"
           className="w-9 h-9 rounded-full bg-slate-600 hover:bg-slate-500 flex items-center justify-center overflow-hidden transition-colors"
         >
-          <span className="text-[12px] font-bold text-white">
-            {session?.avatarInitials ?? "??"}
-          </span>
+          <span className="text-[12px] font-bold text-white">{initials}</span>
         </button>
       </div>
     </header>
